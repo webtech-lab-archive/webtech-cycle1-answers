@@ -1,49 +1,584 @@
+Question 1 Template 1 - DOM Button Events
+Q1. Develop an HTML page containing a heading and paragraph. Write a JavaScript program to change the heading and
+paragraph content dynamically when a button is clicked using DOM methods.
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM Demo</title>
+<style>
+body{font-family:Arial,sans-serif;background:#eaf2f8;text-align:center;margin:30px}
+.box{background:#fff;max-width:460px;margin:auto;padding:20px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+input,textarea,select{padding:8px;margin:6px;border:1px solid #888;border-radius:5px;width:85%}
+button{background:#2874a6;color:#fff;border:0;padding:9px 18px;margin:5px;border-radius:5px;cursor:pointer}
+.err{color:red}.ok{color:green}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{border:1px solid #999;padding:6px}th{background:#2874a6;color:#fff}
+</style>
+</head>
+<body>
+<div class="box"><h1 id="head">Welcome</h1>
+<p id="para">This is the original paragraph.</p>
+<button onclick="change()">Change Content</button></div>
+<script>
+function change() {
+  document.getElementById("head").innerHTML = "Heading Changed!";
+  document.getElementById("para").textContent = "The paragraph was updated using DOM methods.";
+}
+</script>
+</body>
+</html>
 
-## Cycle 1 – HTML and CSS (16 programs)
+========================================================================
 
-| Question | Program / Website name              | File name |
-| -------- | ----------------------------------- | --------- |
-| Q1       | College Department Website          | `q1.txt`  |
-| Q2       | Online Learning Platform            | `q2.txt`  |
-| Q3       | Restaurant Website                  | `q3.txt`  |
-| Q4       | Personal Portfolio Website          | `q4.txt`  |
-| Q5       | Hospital Website                    | `q5.txt`  |
-| Q6       | Travel and Tourism Agency           | `q6.txt`  |
-| Q7       | Online Book Store                   | `q7.txt`  |
-| Q8       | College Sports Club                 | `q8.txt`  |
-| Q9       | College Technical Symposium         | `q9.txt`  |
-| Q10      | Fitness Centre Website              | `q10.txt` |
-| Q11      | Online Food Ordering Service        | `q11.txt` |
-| Q12      | Online Job Recruitment Portal       | `q12.txt` |
-| Q13      | Banking Service Website             | `q13.txt` |
-| Q14      | College Placement Cell              | `q14.txt` |
-| Q15      | Digital Library / E-Learning Portal | `q15.txt` |
-| Q16      | Student E-Learning Portal           | `q16.txt` |
+Question 2 Template 1 - DOM Button Events
+Q2. Create a web page with three buttons labelled Red, Green and Blue. Write JavaScript code to change the background
+color of the webpage based on the selected button.
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Background Colour</title>
+<style>
+body{font-family:Arial,sans-serif;background:#eaf2f8;text-align:center;margin:30px}
+.box{background:#fff;max-width:460px;margin:auto;padding:20px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+input,textarea,select{padding:8px;margin:6px;border:1px solid #888;border-radius:5px;width:85%}
+button{background:#2874a6;color:#fff;border:0;padding:9px 18px;margin:5px;border-radius:5px;cursor:pointer}
+.err{color:red}.ok{color:green}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{border:1px solid #999;padding:6px}th{background:#2874a6;color:#fff}
+</style>
+</head>
+<body>
+<div class="box"><h2>Choose Background Colour</h2>
+<button style="background:red" onclick="setColor('red')">Red</button>
+<button style="background:green" onclick="setColor('green')">Green</button>
+<button style="background:blue" onclick="setColor('blue')">Blue</button></div>
+<script>
+function setColor(c) {
+  document.body.style.backgroundColor = c;
+}
+</script>
+</body>
+</html>
 
+========================================================================
 
-## Cycle 2 – JavaScript, AJAX and Node.js (15 programs)
+Question 3 Template 2 - Dynamic Table
+Q3. Design a web page to accept Student Name, Register Number and Department. Write JavaScript code to dynamically add
+the student details as a new row in an HTML table. Provide an option to delete a selected row.
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Student Table</title>
+<style>
+body{font-family:Arial,sans-serif;background:#eaf2f8;text-align:center;margin:30px}
+.box{background:#fff;max-width:460px;margin:auto;padding:20px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+input,textarea,select{padding:8px;margin:6px;border:1px solid #888;border-radius:5px;width:85%}
+button{background:#2874a6;color:#fff;border:0;padding:9px 18px;margin:5px;border-radius:5px;cursor:pointer}
+.err{color:red}.ok{color:green}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{border:1px solid #999;padding:6px}th{background:#2874a6;color:#fff}
+</style>
+</head>
+<body>
+<div class="box"><h2>Student Details</h2>
+<input id="name" placeholder="Student Name">
+<input id="reg" placeholder="Register Number">
+<input id="dept" placeholder="Department"><br>
+<button onclick="addRow()">Add</button>
+<button onclick="delRow()" style="background:#c0392b">Delete Selected</button>
+<table id="tbl"><tr><th>Select</th><th>Name</th><th>Reg No</th><th>Department</th></tr></table></div>
+<script>
+function addRow() {
+  let n = document.getElementById("name").value;
+  let r = document.getElementById("reg").value;
+  let d = document.getElementById("dept").value;
+  if (n == "" || r == "" || d == "") { alert("Fill all fields"); return; }
+  let row = document.getElementById("tbl").insertRow();
+  row.innerHTML = "<td><input type='checkbox'></td><td>" + n + "</td><td>" + r + "</td><td>" + d + "</td>";
+  document.getElementById("name").value = "";
+  document.getElementById("reg").value = "";
+  document.getElementById("dept").value = "";
+}
+function delRow() {
+  document.querySelectorAll("#tbl input[type=checkbox]").forEach(c => {
+    if (c.checked) c.parentElement.parentElement.remove();
+  });
+}
+</script>
+</body>
+</html>
 
-| Question | Program name                                | Continuous file name |
-| -------- | ------------------------------------------- | -------------------- |
-| Q1       | Change Heading and Paragraph Using DOM      | `q17.txt`            |
-| Q2       | Change Background Colour Using Buttons      | `q18.txt`            |
-| Q3       | Dynamic Student Table – Add and Delete Rows | `q19.txt`            |
-| Q4       | Show and Hide Image Using DOM               | `q20.txt`            |
-| Q5       | Character Counter Using JavaScript          | `q21.txt`            |
-| Q6       | Date of Birth Validation and Age Calculator | `q22.txt`            |
-| Q7       | Password and Confirm Password Validation    | `q23.txt`            |
-| Q8       | Password Strength Validation                | `q24.txt`            |
-| Q9       | Email Validation Using Regular Expression   | `q25.txt`            |
-| Q10      | Student Registration Form Validation        | `q26.txt`            |
-| Q11      | Retrieve Student Details Using AJAX         | `q27.txt`            |
-| Q12      | Library Book Search Using AJAX              | `q28.txt`            |
-| Q13      | Node.js MySQL Student Records               | `q29.txt`            |
-| Q14      | Server-Side Calculator Using Node.js        | `q30.txt`            |
-| Q15      | Display Current Date and Time Using Node.js | `q31.txt`            |
+========================================================================
 
+Question 4 Template 1 - DOM Button Events
+Q4. Create a web page containing an image and two buttons labelled Show and Hide. Write JavaScript code to display or hide
+the image using DOM manipulation.
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Show Hide Image</title>
+<style>
+body{font-family:Arial,sans-serif;background:#eaf2f8;text-align:center;margin:30px}
+.box{background:#fff;max-width:460px;margin:auto;padding:20px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+input,textarea,select{padding:8px;margin:6px;border:1px solid #888;border-radius:5px;width:85%}
+button{background:#2874a6;color:#fff;border:0;padding:9px 18px;margin:5px;border-radius:5px;cursor:pointer}
+.err{color:red}.ok{color:green}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{border:1px solid #999;padding:6px}th{background:#2874a6;color:#fff}
+</style>
+</head>
+<body>
+<div class="box"><h2>Image Toggle</h2>
+<img id="pic" src="photo.jpg" width="300" alt="sample">
+<br><button onclick="show()">Show</button>
+<button onclick="hide()">Hide</button></div>
+<script>
+function show() { document.getElementById("pic").style.display = "inline"; }
+function hide() { document.getElementById("pic").style.display = "none"; }
+</script>
+</body>
+</html>
 
-Files q17–q31
+========================================================================
 
-# 31 Programs Total
+Question 5 Template 1 - DOM Button Events
+Q5. Design a webpage containing a textarea. Write JavaScript code to dynamically display the number of characters entered
+by the user whenever the content changes.
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Character Counter</title>
+<style>
+body{font-family:Arial,sans-serif;background:#eaf2f8;text-align:center;margin:30px}
+.box{background:#fff;max-width:460px;margin:auto;padding:20px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+input,textarea,select{padding:8px;margin:6px;border:1px solid #888;border-radius:5px;width:85%}
+button{background:#2874a6;color:#fff;border:0;padding:9px 18px;margin:5px;border-radius:5px;cursor:pointer}
+.err{color:red}.ok{color:green}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{border:1px solid #999;padding:6px}th{background:#2874a6;color:#fff}
+</style>
+</head>
+<body>
+<div class="box"><h2>Character Counter</h2>
+<textarea id="txt" rows="5" placeholder="Type here..." oninput="count()"></textarea>
+<p>Characters entered: <b id="cnt">0</b></p></div>
+<script>
+function count() {
+  let text = document.getElementById("txt").value;
+  document.getElementById("cnt").innerText = text.length;
+}
+</script>
+</body>
+</html>
 
-File naming: `q1.txt` to `q31.txt`, without restarting numbering in Cycle 2.
+========================================================================
+
+Question 6 Template 3 - Input Validation
+Q6. Develop a web page to accept the date of birth of a user. Write JavaScript code to validate the date and calculate the
+user's age.
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Age Calculator</title>
+<style>
+body{font-family:Arial,sans-serif;background:#eaf2f8;text-align:center;margin:30px}
+.box{background:#fff;max-width:460px;margin:auto;padding:20px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+input,textarea,select{padding:8px;margin:6px;border:1px solid #888;border-radius:5px;width:85%}
+button{background:#2874a6;color:#fff;border:0;padding:9px 18px;margin:5px;border-radius:5px;cursor:pointer}
+.err{color:red}.ok{color:green}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{border:1px solid #999;padding:6px}th{background:#2874a6;color:#fff}
+</style>
+</head>
+<body>
+<div class="box"><h2>Age Calculator</h2>
+<label>Date of Birth:</label>
+<input type="date" id="dob"><br>
+<button onclick="calcAge()">Calculate Age</button>
+<p id="msg"></p></div>
+<script>
+function calcAge() {
+  let v = document.getElementById("dob").value;
+  let m = document.getElementById("msg");
+  if (v == "") { m.className = "err"; m.innerText = "Please enter your date of birth"; return; }
+  let dob = new Date(v), today = new Date();
+  if (dob > today) { m.className = "err"; m.innerText = "Invalid date: future date not allowed"; return; }
+  let age = today.getFullYear() - dob.getFullYear();
+  let diff = today.getMonth() - dob.getMonth();
+  if (diff < 0 || (diff == 0 && today.getDate() < dob.getDate())) age--;
+  m.className = "ok";
+  m.innerText = "Valid date. Your age is " + age + " years";
+}
+</script>
+</body>
+</html>
+
+========================================================================
+
+Question 7 Template 3 - Input Validation
+Q7. Develop a registration form with Password and Confirm Password fields. Write a JavaScript program to verify whether both
+passwords match. Display suitable messages based on the validation result.
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Registration</title>
+<style>
+body{font-family:Arial,sans-serif;background:#eaf2f8;text-align:center;margin:30px}
+.box{background:#fff;max-width:460px;margin:auto;padding:20px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+input,textarea,select{padding:8px;margin:6px;border:1px solid #888;border-radius:5px;width:85%}
+button{background:#2874a6;color:#fff;border:0;padding:9px 18px;margin:5px;border-radius:5px;cursor:pointer}
+.err{color:red}.ok{color:green}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{border:1px solid #999;padding:6px}th{background:#2874a6;color:#fff}
+</style>
+</head>
+<body>
+<div class="box"><h2>Registration Form</h2>
+<input type="text" id="user" placeholder="Username"><br>
+<input type="password" id="pw" placeholder="Password"><br>
+<input type="password" id="cpw" placeholder="Confirm Password"><br>
+<button onclick="verify()">Register</button>
+<p id="msg"></p></div>
+<script>
+function verify() {
+  let p = document.getElementById("pw").value;
+  let c = document.getElementById("cpw").value;
+  let m = document.getElementById("msg");
+  if (p == "" || c == "") { m.className = "err"; m.innerText = "Password fields cannot be empty"; }
+  else if (p == c) { m.className = "ok"; m.innerText = "Passwords match. Registration successful!"; }
+  else { m.className = "err"; m.innerText = "Passwords do not match. Try again."; }
+}
+</script>
+</body>
+</html>
+
+========================================================================
+
+Question 8 Template 3 - Input Validation
+Q8. Design a password validation form. Write a JavaScript program to check whether the password contains at least 8
+characters, one uppercase letter, one lowercase letter, one digit and one special character.
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Password Validation</title>
+<style>
+body{font-family:Arial,sans-serif;background:#eaf2f8;text-align:center;margin:30px}
+.box{background:#fff;max-width:460px;margin:auto;padding:20px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+input,textarea,select{padding:8px;margin:6px;border:1px solid #888;border-radius:5px;width:85%}
+button{background:#2874a6;color:#fff;border:0;padding:9px 18px;margin:5px;border-radius:5px;cursor:pointer}
+.err{color:red}.ok{color:green}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{border:1px solid #999;padding:6px}th{background:#2874a6;color:#fff}
+</style>
+</head>
+<body>
+<div class="box"><h2>Password Validation</h2>
+<input type="password" id="pw" placeholder="Enter password"><br>
+<button onclick="check()">Check Password</button>
+<ul id="list" style="list-style:none;padding:0;text-align:left;margin-left:60px"></ul>
+<p id="msg"></p></div>
+<script>
+function check() {
+  let p = document.getElementById("pw").value;
+  let rules = [
+    [p.length >= 8, "At least 8 characters"],
+    [/[A-Z]/.test(p), "One uppercase letter"],
+    [/[a-z]/.test(p), "One lowercase letter"],
+    [/\d/.test(p), "One digit"],
+    [/[^A-Za-z0-9]/.test(p), "One special character"]
+  ];
+  let out = "", all = true;
+  rules.forEach(r => {
+    out += "<li class='" + (r[0] ? "ok" : "err") + "'>" + (r[0] ? "&#10004; " : "&#10008; ") + r[1] + "</li>";
+    if (!r[0]) all = false;
+  });
+  document.getElementById("list").innerHTML = out;
+  document.getElementById("msg").innerHTML = all ? "<b class='ok'>Strong password</b>" : "<b class='err'>Weak 
+password</b>";
+}
+</script>
+</body>
+</html>
+
+========================================================================
+
+Question 9 Template 3 - Input Validation
+Q9. Develop a web page to accept an email address from the user. Write a JavaScript program using Regular Expressions to
+validate the email format and display whether the entered email address is valid or invalid.
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Email Validation</title>
+<style>
+body{font-family:Arial,sans-serif;background:#eaf2f8;text-align:center;margin:30px}
+.box{background:#fff;max-width:460px;margin:auto;padding:20px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+input,textarea,select{padding:8px;margin:6px;border:1px solid #888;border-radius:5px;width:85%}
+button{background:#2874a6;color:#fff;border:0;padding:9px 18px;margin:5px;border-radius:5px;cursor:pointer}
+.err{color:red}.ok{color:green}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{border:1px solid #999;padding:6px}th{background:#2874a6;color:#fff}
+</style>
+</head>
+<body>
+<div class="box"><h2>Email Validation</h2>
+<input type="text" id="email" placeholder="Enter email address"><br>
+<button onclick="checkEmail()">Validate</button>
+<p id="msg"></p></div>
+<script>
+function checkEmail() {
+  let e = document.getElementById("email").value;
+  let pattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+  let m = document.getElementById("msg");
+  if (pattern.test(e)) { m.className = "ok"; m.innerText = e + " is a VALID email address"; }
+  else { m.className = "err"; m.innerText = e + " is an INVALID email address"; }
+}
+</script>
+</body>
+</html>
+
+========================================================================
+
+Question 10 Template 3 - Input Validation
+Q10. Develop an HTML page with a student registration form containing Name, Register Number, Email ID, Mobile Number
+and Password. Write JavaScript functions to validate all the input fields. Display appropriate error messages for invalid entries.
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Student Registration</title>
+<style>
+body{font-family:Arial,sans-serif;background:#eaf2f8;text-align:center;margin:30px}
+.box{background:#fff;max-width:460px;margin:auto;padding:20px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+input,textarea,select{padding:8px;margin:6px;border:1px solid #888;border-radius:5px;width:85%}
+button{background:#2874a6;color:#fff;border:0;padding:9px 18px;margin:5px;border-radius:5px;cursor:pointer}
+.err{color:red}.ok{color:green}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{border:1px solid #999;padding:6px}th{background:#2874a6;color:#fff}
+</style>
+</head>
+<body>
+<div class="box"><h2>Student Registration</h2>
+<input id="name" placeholder="Name"><div class="err" id="nameErr"></div>
+<input id="reg" placeholder="Register Number (21IT014)"><div class="err" id="regErr"></div>
+<input id="email" placeholder="Email ID"><div class="err" id="emailErr"></div>
+<input id="mobile" placeholder="Mobile Number"><div class="err" id="mobileErr"></div>
+<input type="password" id="pass" placeholder="Password"><div class="err" id="passErr"></div>
+<button onclick="validate()">Register</button>
+<p id="msg"></p></div>
+<script>
+function check(id, re, msg) {
+  let ok = re.test(document.getElementById(id).value);
+  document.getElementById(id + "Err").innerText = ok ? "" : msg;
+  return ok;
+}
+function validate() {
+  let r = [
+    check("name", /^[A-Za-z ]{3,}$/, "Name must have 3+ letters"),
+    check("reg", /^\d{2}[A-Z]{2,3}\d{3}$/, "Format should be like 21IT014"),
+    check("email", /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i, "Enter a valid email"),
+    check("mobile", /^[6-9]\d{9}$/, "10 digits starting with 6-9"),
+    check("pass", /^(?=.*[A-Za-z])(?=.*\d).{8,}$/, "Min 8 chars with letter and digit")
+  ];
+  document.getElementById("msg").innerHTML = r.every(x => x) ? "<b class='ok'>Registration successful!</b>" : "";
+}
+</script>
+</body>
+</html>
+
+========================================================================
+
+Question 11 Template 4 - AJAX (XMLHttpRequest)
+Q11. Develop a web application to retrieve student details from a text file using AJAX. Display the retrieved contents in an
+HTML division when a button is clicked.
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AJAX Student Details</title>
+<style>
+body{font-family:Arial,sans-serif;background:#eaf2f8;text-align:center;margin:30px}
+.box{background:#fff;max-width:460px;margin:auto;padding:20px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+input,textarea,select{padding:8px;margin:6px;border:1px solid #888;border-radius:5px;width:85%}
+button{background:#2874a6;color:#fff;border:0;padding:9px 18px;margin:5px;border-radius:5px;cursor:pointer}
+.err{color:red}.ok{color:green}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{border:1px solid #999;padding:6px}th{background:#2874a6;color:#fff}
+</style>
+</head>
+<body>
+<div class="box"><h2>Student Details (AJAX)</h2>
+<button onclick="loadData()">Load Student Details</button>
+<div id="result" style="white-space:pre-line;text-align:left;margin-top:10px"></div></div>
+<script>
+function loadData() {
+  let xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200)
+      document.getElementById("result").innerText = xhr.responseText;
+  };
+  xhr.open("GET", "students.txt", true);
+  xhr.send();
+}
+</script>
+</body>
+</html>
+students.txt
+Student Details
+1. Arun Kumar - 21IT001 - IT
+2. Priya Devi - 21IT014 - IT
+3. Karthik Raj - 21CS007 - CSE
+4. Meena S - 21EC022 - ECE
+
+========================================================================
+
+Question 12 Template 4 - AJAX (XMLHttpRequest)
+Q12. Develop a library management application that retrieves book details based on the entered book title or author name.
+Display Book ID, Title, Author and Availability dynamically without reloading the page.
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Library Search</title>
+<style>
+body{font-family:Arial,sans-serif;background:#eaf2f8;text-align:center;margin:30px}
+.box{background:#fff;max-width:460px;margin:auto;padding:20px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+input,textarea,select{padding:8px;margin:6px;border:1px solid #888;border-radius:5px;width:85%}
+button{background:#2874a6;color:#fff;border:0;padding:9px 18px;margin:5px;border-radius:5px;cursor:pointer}
+.err{color:red}.ok{color:green}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{border:1px solid #999;padding:6px}th{background:#2874a6;color:#fff}
+</style>
+</head>
+<body>
+<div class="box"><h2>Library Book Search</h2>
+<input id="q" placeholder="Enter book title or author">
+<button onclick="search()">Search</button>
+<div id="result"></div></div>
+<script>
+function search() {
+  let key = document.getElementById("q").value.toLowerCase();
+  let xhr = new XMLHttpRequest();
+  xhr.onload = function () {
+    let books = JSON.parse(xhr.responseText);
+    let rows = "<table><tr><th>ID</th><th>Title</th><th>Author</th><th>Availability</th></tr>";
+    books.filter(b => b.title.toLowerCase().includes(key) || b.author.toLowerCase().includes(key))
+         .forEach(b => rows += "<tr><td>" + b.id + "</td><td>" + b.title + "</td><td>" + b.author +
+                    "</td><td>" + (b.available ? "Available" : "Issued") + "</td></tr>");
+    document.getElementById("result").innerHTML = rows + "</table>";
+  };
+  xhr.open("GET", "books.json", true);
+  xhr.send();
+}
+</script>
+</body>
+</html>
+books.json
+[
+ {"id":101,"title":"Clean Code","author":"Robert Martin","available":true},
+ {"id":102,"title":"Wings of Fire","author":"APJ Abdul Kalam","available":false},
+ {"id":103,"title":"Python Basics","author":"Mark Lutz","available":true},
+ {"id":104,"title":"Atomic Habits","author":"James Clear","available":true}
+]
+
+========================================================================
+
+Question 13 Template 5 - Node.js Server
+Q13. Develop a Node.js application to connect to a MySQL database and retrieve student details. Display the student records
+in an HTML table.
+Run: npm install mysql2 | node server.js | open http://localhost:3000
+setup.sql (run once in MySQL)
+CREATE DATABASE college;
+USE college;
+CREATE TABLE students(id INT PRIMARY KEY, name VARCHAR(50), regno VARCHAR(15), dept VARCHAR(20));
+INSERT INTO students VALUES (1,'Arun Kumar','21IT001','IT'),(2,'Priya Devi','21IT014','IT'),(3,'Karthik 
+Raj','21CS007','CSE');
+server.js
+const http = require('http');
+const mysql = require('mysql2');
+const db = mysql.createConnection({
+  host: 'localhost', user: 'root', password: 'root', database: 'college'
+});
+db.connect(err => {
+  if (err) throw err;
+  console.log('MySQL connected');
+});
+http.createServer((req, res) => {
+  db.query('SELECT * FROM students', (err, rows) => {
+    if (err) { res.end('Database error'); return; }
+    let html = '<h2>Student Records</h2><table border="1" cellpadding="8" style="border-collapse:collapse">' +
+               '<tr><th>ID</th><th>Name</th><th>Reg No</th><th>Department</th></tr>';
+    rows.forEach(r => {
+      html += `<tr><td>${r.id}</td><td>${r.name}</td><td>${r.regno}</td><td>${r.dept}</td></tr>`;
+    });
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.end(html + '</table>');
+  });
+}).listen(3000, () => console.log('Server running at http://localhost:3000'));
+
+========================================================================
+
+Question 14 Template 5 - Node.js Server
+Q14. Develop a Node.js application to accept two numbers from the client and perform addition, subtraction, multiplication and
+division on the server side. Display the results on the webpage.
+Run: node server.js | open http://localhost:3000 (enter two numbers, click Calculate)
+server.js
+const http = require('http');
+http.createServer((req, res) => {
+  const u = new URL(req.url, 'http://localhost:3000');
+  let html = `<h2>Calculator (Server Side)</h2>
+  <form action="/calc">
+    <input name="a" placeholder="Number 1" required>
+    <input name="b" placeholder="Number 2" required>
+    <button>Calculate</button>
+  </form>`;
+  if (u.pathname == '/calc') {
+    const a = parseFloat(u.searchParams.get('a'));
+    const b = parseFloat(u.searchParams.get('b'));
+    html += `<h3>Results</h3>
+      <p>Addition: ${a + b}</p>
+      <p>Subtraction: ${a - b}</p>
+      <p>Multiplication: ${a * b}</p>
+      <p>Division: ${b == 0 ? 'Cannot divide by zero' : a / b}</p>`;
+  }
+  res.writeHead(200, { 'Content-Type': 'text/html' });
+  res.end(html);
+}).listen(3000, () => console.log('Server running at http://localhost:3000'));
+
+========================================================================
+
+Question 15 Template 5 - Node.js Server
+Q15. Develop a Node.js application to display the current date and time on a webpage using the built-in Date object.
+Run: node server.js | open http://localhost:3000
+server.js
+const http = require('http');
+http.createServer((req, res) => {
+  const now = new Date();
+  res.writeHead(200, { 'Content-Type': 'text/html' });
+  res.end(`<meta http-equiv="refresh" content="1">
+    <body style="text-align:center;font-family:Arial;margin-top:60px">
+    <h1>Current Date and Time</h1>
+    <h2>Date: ${now.toDateString()}</h2>
+    <h2>Time: ${now.toLocaleTimeString()}</h2>
+    <p>${now}</p></body>`);
+}).listen(3000, () => console.log('Server running at http://localhost:3000'));
