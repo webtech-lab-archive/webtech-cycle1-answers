@@ -1,0 +1,42 @@
+Question 11 Template 4 - AJAX (XMLHttpRequest)
+Q11. Develop a web application to retrieve student details from a text file using AJAX. Display the retrieved contents in an
+HTML division when a button is clicked.
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AJAX Student Details</title>
+<style>
+body{font-family:Arial,sans-serif;background:#eaf2f8;text-align:center;margin:30px}
+.box{background:#fff;max-width:460px;margin:auto;padding:20px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+input,textarea,select{padding:8px;margin:6px;border:1px solid #888;border-radius:5px;width:85%}
+button{background:#2874a6;color:#fff;border:0;padding:9px 18px;margin:5px;border-radius:5px;cursor:pointer}
+.err{color:red}.ok{color:green}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{border:1px solid #999;padding:6px}th{background:#2874a6;color:#fff}
+</style>
+</head>
+<body>
+<div class="box"><h2>Student Details (AJAX)</h2>
+<button onclick="loadData()">Load Student Details</button>
+<div id="result" style="white-space:pre-line;text-align:left;margin-top:10px"></div></div>
+<script>
+function loadData() {
+  let xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200)
+      document.getElementById("result").innerText = xhr.responseText;
+  };
+  xhr.open("GET", "students.txt", true);
+  xhr.send();
+}
+</script>
+</body>
+</html>
+students.txt
+Student Details
+1. Arun Kumar - 21IT001 - IT
+2. Priya Devi - 21IT014 - IT
+3. Karthik Raj - 21CS007 - CSE
+4. Meena S - 21EC022 - ECE

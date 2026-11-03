@@ -1,0 +1,26 @@
+Question 14 Template 5 - Node.js Server
+Q14. Develop a Node.js application to accept two numbers from the client and perform addition, subtraction, multiplication and
+division on the server side. Display the results on the webpage.
+Run: node server.js | open http://localhost:3000 (enter two numbers, click Calculate)
+server.js
+const http = require('http');
+http.createServer((req, res) => {
+  const u = new URL(req.url, 'http://localhost:3000');
+  let html = `<h2>Calculator (Server Side)</h2>
+  <form action="/calc">
+    <input name="a" placeholder="Number 1" required>
+    <input name="b" placeholder="Number 2" required>
+    <button>Calculate</button>
+  </form>`;
+  if (u.pathname == '/calc') {
+    const a = parseFloat(u.searchParams.get('a'));
+    const b = parseFloat(u.searchParams.get('b'));
+    html += `<h3>Results</h3>
+      <p>Addition: ${a + b}</p>
+      <p>Subtraction: ${a - b}</p>
+      <p>Multiplication: ${a * b}</p>
+      <p>Division: ${b == 0 ? 'Cannot divide by zero' : a / b}</p>`;
+  }
+  res.writeHead(200, { 'Content-Type': 'text/html' });
+  res.end(html);
+}).listen(3000, () => console.log('Server running at http://localhost:3000'));

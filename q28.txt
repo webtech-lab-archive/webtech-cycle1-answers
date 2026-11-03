@@ -1,0 +1,49 @@
+Question 12 Template 4 - AJAX (XMLHttpRequest)
+Q12. Develop a library management application that retrieves book details based on the entered book title or author name.
+Display Book ID, Title, Author and Availability dynamically without reloading the page.
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Library Search</title>
+<style>
+body{font-family:Arial,sans-serif;background:#eaf2f8;text-align:center;margin:30px}
+.box{background:#fff;max-width:460px;margin:auto;padding:20px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+input,textarea,select{padding:8px;margin:6px;border:1px solid #888;border-radius:5px;width:85%}
+button{background:#2874a6;color:#fff;border:0;padding:9px 18px;margin:5px;border-radius:5px;cursor:pointer}
+.err{color:red}.ok{color:green}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{border:1px solid #999;padding:6px}th{background:#2874a6;color:#fff}
+</style>
+</head>
+<body>
+<div class="box"><h2>Library Book Search</h2>
+<input id="q" placeholder="Enter book title or author">
+<button onclick="search()">Search</button>
+<div id="result"></div></div>
+<script>
+function search() {
+  let key = document.getElementById("q").value.toLowerCase();
+  let xhr = new XMLHttpRequest();
+  xhr.onload = function () {
+    let books = JSON.parse(xhr.responseText);
+    let rows = "<table><tr><th>ID</th><th>Title</th><th>Author</th><th>Availability</th></tr>";
+    books.filter(b => b.title.toLowerCase().includes(key) || b.author.toLowerCase().includes(key))
+         .forEach(b => rows += "<tr><td>" + b.id + "</td><td>" + b.title + "</td><td>" + b.author +
+                    "</td><td>" + (b.available ? "Available" : "Issued") + "</td></tr>");
+    document.getElementById("result").innerHTML = rows + "</table>";
+  };
+  xhr.open("GET", "books.json", true);
+  xhr.send();
+}
+</script>
+</body>
+</html>
+books.json
+[
+ {"id":101,"title":"Clean Code","author":"Robert Martin","available":true},
+ {"id":102,"title":"Wings of Fire","author":"APJ Abdul Kalam","available":false},
+ {"id":103,"title":"Python Basics","author":"Mark Lutz","available":true},
+ {"id":104,"title":"Atomic Habits","author":"James Clear","available":true}
+]

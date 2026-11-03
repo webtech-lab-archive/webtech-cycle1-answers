@@ -1,0 +1,41 @@
+Question 6 Template 3 - Input Validation
+Q6. Develop a web page to accept the date of birth of a user. Write JavaScript code to validate the date and calculate the
+user's age.
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Age Calculator</title>
+<style>
+body{font-family:Arial,sans-serif;background:#eaf2f8;text-align:center;margin:30px}
+.box{background:#fff;max-width:460px;margin:auto;padding:20px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+input,textarea,select{padding:8px;margin:6px;border:1px solid #888;border-radius:5px;width:85%}
+button{background:#2874a6;color:#fff;border:0;padding:9px 18px;margin:5px;border-radius:5px;cursor:pointer}
+.err{color:red}.ok{color:green}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{border:1px solid #999;padding:6px}th{background:#2874a6;color:#fff}
+</style>
+</head>
+<body>
+<div class="box"><h2>Age Calculator</h2>
+<label>Date of Birth:</label>
+<input type="date" id="dob"><br>
+<button onclick="calcAge()">Calculate Age</button>
+<p id="msg"></p></div>
+<script>
+function calcAge() {
+  let v = document.getElementById("dob").value;
+  let m = document.getElementById("msg");
+  if (v == "") { m.className = "err"; m.innerText = "Please enter your date of birth"; return; }
+  let dob = new Date(v), today = new Date();
+  if (dob > today) { m.className = "err"; m.innerText = "Invalid date: future date not allowed"; return; }
+  let age = today.getFullYear() - dob.getFullYear();
+  let diff = today.getMonth() - dob.getMonth();
+  if (diff < 0 || (diff == 0 && today.getDate() < dob.getDate())) age--;
+  m.className = "ok";
+  m.innerText = "Valid date. Your age is " + age + " years";
+}
+</script>
+</body>
+</html>

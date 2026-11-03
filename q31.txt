@@ -1,0 +1,15 @@
+Question 15 Template 5 - Node.js Server
+Q15. Develop a Node.js application to display the current date and time on a webpage using the built-in Date object.
+Run: node server.js | open http://localhost:3000
+server.js
+const http = require('http');
+http.createServer((req, res) => {
+  const now = new Date();
+  res.writeHead(200, { 'Content-Type': 'text/html' });
+  res.end(`<meta http-equiv="refresh" content="1">
+    <body style="text-align:center;font-family:Arial;margin-top:60px">
+    <h1>Current Date and Time</h1>
+    <h2>Date: ${now.toDateString()}</h2>
+    <h2>Time: ${now.toLocaleTimeString()}</h2>
+    <p>${now}</p></body>`);
+}).listen(3000, () => console.log('Server running at http://localhost:3000'));
