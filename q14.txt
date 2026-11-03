@@ -1,0 +1,60 @@
+Question 14 Template 1 - Institution Page
+Q14. Design and develop a static webpage for a College Placement Cell using HTML and CSS. The webpage should contain the
+Placement Cell name, navigation menu, Placement Cell overview, training programs, recruiting companies represented using cards,
+placement statistics using a table, student achievements, upcoming placement drives, contact information and footer. Use headings,
+paragraphs, images, lists, tables, hyperlinks, sections and articles. Apply CSS Grid and Flexbox along with card styling, box-shadow,
+border-radius, background properties, transitions and hover effects. [50 Marks]
+
+Answer (index.html - images saved in the same folder):
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Placement Cell</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f6f8;color:#222}
+header{background:#6c3483;color:#fff;text-align:center;padding:18px}
+header h1{margin:0;font-size:28px}
+nav{background:#4a235a;display:flex;justify-content:center;gap:25px;padding:10px}
+nav a{color:#fff;text-decoration:none;font-size:16px}
+.wrap{display:flex;gap:15px;padding:10px 15px}
+section{flex:1;background:#fff;border:1px solid #ccc;border-radius:8px;padding:15px}
+h2{color:#6c3483;margin-top:0}
+table{width:100%;border-collapse:collapse}
+th,td{border:1px solid #999;padding:6px;text-align:left}
+th{background:#6c3483;color:#fff}
+img{width:100%;border-radius:8px}
+.btn{background:#6c3483;color:#fff;padding:8px 16px;border-radius:5px;text-decoration:none}
+footer{background:#4a235a;color:#fff;text-align:center;padding:12px;margin-top:10px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.c{background:#f4ecf7;border-radius:8px;padding:12px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.25);transition:.3s}
+.c:hover{transform:scale(1.08);background:#6c3483;color:#fff}</style>
+</head>
+<body>
+<header><h1>Training &amp; Placement Cell</h1><p>ABC College of Engineering</p></header>
+<nav><a href="#">Home</a><a href="#overview">Overview</a><a href="#stats">Statistics</a><a href="#drives">Drives</a><a
+href="#contact">Contact</a></nav>
+<main>
+<div class="wrap">
+<section id="overview"><h2>Placement Cell Overview</h2><p>We connect students with top recruiters through training, mock
+interviews and campus drives.</p></section>
+<section><h2>Training Programs</h2><ul><li>Aptitude Training</li><li>Coding Bootcamp</li><li>Soft Skills</li></ul></section>
+</div>
+<div class="wrap"><section><h2>Recruiting Companies</h2>
+<div class="cards"><article class="c">TCS</article><article class="c">Infosys</article><article class="c">Zoho</article>
+<article class="c">Wipro</article></div></section></div>
+<div class="wrap">
+<section id="stats"><h2>Placement Statistics</h2>
+<table><tr><th>Year</th><th>Placed</th><th>Highest CTC</th></tr>
+<tr><td>2023</td><td>320</td><td>12 LPA</td></tr><tr><td>2024</td><td>365</td><td>15 LPA</td></tr><tr><td>2025</td><td>410</td>
+<td>18 LPA</td></tr></table></section>
+<section id="drives"><h2>Upcoming Drives</h2><ul><li>Zoho - 12 Dec</li><li>TCS - 20 Dec</li></ul>
+<h2>Student Achievements</h2><ul><li>Ravi - 18 LPA at Amazon</li></ul></section>
+</div></main>
+<footer id="contact">placement@abc.edu | +91 98765 00000</footer>
+</body>
+</html>
+
+Output:

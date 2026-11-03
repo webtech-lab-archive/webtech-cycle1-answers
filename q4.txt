@@ -1,0 +1,52 @@
+Question 4 Template 4 - Portfolio Page
+Q4. Design and develop a static Personal Portfolio webpage for a student or software developer using HTML and CSS. The webpage
+should contain the person's name, profile image, professional title, About Me section, technical skills, educational qualifications,
+projects, achievements, contact information and social media links. Use appropriate headings, paragraphs, images, ordered or
+unordered lists, hyperlinks, sections and footer. Apply CSS Grid and Flexbox along with properties such as background-color, fontfamily, padding, margin, border-radius, box-shadow to design the webpage. [50 Marks]
+
+Answer (index.html - images saved in the same folder):
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Portfolio</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:#222}
+header{display:flex;align-items:center;gap:25px;background:#1e3a5f;color:#fff;padding:28px 60px}
+header img{width:130px;height:130px;border-radius:50%;border:4px solid #fff}
+h1{margin:0}
+section{max-width:950px;margin:18px auto;padding:18px;background:#fff;border-radius:12px;box-shadow:0 3px 10px rgba(0,0,0,.15)}
+h2{color:#1e3a5f;border-bottom:2px solid #1e3a5f;padding-bottom:4px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.card{background:#eaf2f8;border-radius:10px;padding:14px;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+.skills{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0}
+.skills li{background:#1e3a5f;color:#fff;padding:6px 14px;border-radius:20px}
+.social a{margin-right:15px;color:#1e3a5f;font-weight:bold}
+footer{background:#1e3a5f;color:#fff;text-align:center;padding:14px}
+</style>
+</head>
+<body>
+<header><img src="profile.jpg" alt="Profile photo">
+<div><h1>Karthik Raj</h1><p>Full Stack Developer | B.Tech IT Student</p></div></header>
+<section><h2>About Me</h2><p>Passionate student developer who loves building clean and responsive web applications.</p>
+</section>
+<section><h2>Technical Skills</h2><ul class="skills"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Python</li><li>MySQL</li>
+<li>Git</li></ul></section>
+<section><h2>Educational Qualifications</h2><ol><li>B.Tech IT - ABC College (2024-2028) - CGPA 8.7</li><li>HSC - Sunrise School
+(2024) - 92%</li><li>SSLC - Sunrise School (2022) - 95%</li></ol></section>
+<section><h2>Projects</h2><div class="grid">
+<article class="card"><h3>Online Quiz App</h3><p>Quiz website using HTML, CSS and JS.</p></article>
+<article class="card"><h3>Weather Dashboard</h3><p>Live weather using a public API.</p></article>
+<article class="card"><h3>Library System</h3><p>Python and MySQL book manager.</p></article>
+</div></section>
+<section><h2>Achievements</h2><ul><li>Winner - Hackathon 2025</li><li>Google Cloud Certified</li><li>Coding Club Secretary</li>
+</ul></section>
+<section><h2>Contact</h2><p>Email: karthik@example.com | Phone: +91 98765 43210</p>
+<p class="social"><a href="#">LinkedIn</a><a href="#">GitHub</a><a href="#">Twitter</a></p></section>
+<footer>&copy; 2026 Karthik Raj</footer>
+</body>
+</html>
+
+Output:

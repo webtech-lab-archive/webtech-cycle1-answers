@@ -1,0 +1,58 @@
+Question 13 Template 3 - Table + Form Page
+Q13. Design and develop a static webpage for a Banking Service using HTML5 and CSS3. The webpage should contain the bank
+name and logo, navigation menu, banking services, savings and current account information, loan services, interest-rate information in
+a table, customer benefits, a login or registration section and contact information. Use headings, paragraphs, images, lists, tables,
+forms, input elements, buttons, hyperlinks and sections. Apply CSS properties including Flexbox, table styling, form styling, borders,
+padding, margins, background colors, button styling. [50 Marks]
+
+Answer (index.html - images saved in the same folder):
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banking Services</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Georgia,serif;background:#fdf6ec}
+header{background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url(banner.jpg) center/cover;color:#fff;textalign:center;padding:45px 20px}
+nav{background:#333;display:flex;justify-content:center;gap:22px;padding:10px}
+nav a{color:#fff;text-decoration:none}
+section{max-width:900px;margin:18px auto;padding:15px;background:#fff;border:1px solid #ddd;border-radius:10px}
+h2{color:#1b4f72;margin-top:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+table{width:100%;border-collapse:collapse}
+th,td{border:1px solid #bbb;padding:7px;text-align:left}
+th{background:#1b4f72;color:#fff}
+tr:nth-child(even){background:#f2f2f2}
+form{display:flex;flex-direction:column;gap:8px}
+form input[type=text],form input[type=email],form input[type=tel],form input[type=password],select{padding:8px;border:1px solid
+#888;border-radius:5px}
+button{background:#1b4f72;color:#fff;padding:10px;border:0;border-radius:5px;cursor:pointer}
+footer{background:#333;color:#fff;text-align:center;padding:14px}
+</style>
+</head>
+<body>
+<header><h1>SecureTrust Bank</h1><p><i>Banking you can trust</i></p></header>
+<nav><a href="#">Home</a><a href="#services">Services</a><a href="#rates">Interest Rates</a><a href="#login">Login</a><a
+href="#contact">Contact</a></nav>
+<section id="services"><h2>Banking Services</h2><div class="two">
+<article><h3>Savings Account</h3><p>Zero balance, 3.5% interest, free debit card.</p></article>
+<article><h3>Current Account</h3><p>For businesses with unlimited transactions.</p></article></div>
+<h3>Loan Services</h3><ul><li>Home Loan</li><li>Education Loan</li><li>Personal Loan</li></ul></section>
+<section id="rates"><h2>Interest Rates</h2><table><tr><th>Product</th><th>Rate</th><th>Tenure</th></tr>
+<tr><td>Savings Account</td><td>3.5%</td><td>-</td></tr>
+<tr><td>Fixed Deposit</td><td>7.0%</td><td>1 Year</td></tr>
+<tr><td>Home Loan</td><td>8.5%</td><td>20 Years</td></tr></table></section>
+<section><h2>Customer Benefits</h2><ul><li>24x7 Net Banking</li><li>Instant Mobile Alerts</li><li>Free ATM Withdrawals</li>
+</ul></section>
+<section id="login"><h2>Customer Login</h2>
+<form action="#" method="post">
+<label>Customer ID</label><input type="text" required>
+<label>Password</label><input type="password" required>
+<button type="submit">Login</button><a href="#">New user? Register here</a></form></section>
+<footer id="contact">SecureTrust Bank | care@securetrust.com | 1800 123 456</footer>
+</body>
+</html>
+
+Output:

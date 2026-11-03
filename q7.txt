@@ -1,0 +1,53 @@
+Question 7 Template 2 - Card Grid Page
+Q7. Design and develop a static webpage for an Online Book Store using HTML5 and CSS3. The webpage should contain the store
+name, navigation menu, a search input field, book categories, at least four book cards displaying book title, author, price and image,
+Buy Now buttons, a special offers section and contact information. Use headings, forms, input elements, images, lists, hyperlinks,
+buttons, sections and articles. Apply CSS Grid or Flexbox, box-shadow, border-radius, padding, margin, borders. [50 Marks]
+
+Answer (index.html - images saved in the same folder):
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Book Store</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:'Segoe UI',Arial,sans-serif;background:#f5f5f5}
+header{background:#6e2c00;color:#fff;padding:15px 30px;display:flex;justify-content:space-between;align-items:center}
+nav a{color:#fff;margin-left:20px;text-decoration:none}
+.hero{background:linear-gradient(#6e2c00,#4e1f00);color:#fff;text-align:center;padding:45px 20px}
+.btn{display:inline-block;background:#ffb703;color:#000;padding:9px 20px;border:0;border-radius:25px;fontweight:bold;cursor:pointer;text-decoration:none}
+section{padding:22px 30px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.card{background:#fff;border-radius:12px;box-shadow:0 3px 10px rgba(0,0,0,.2);padding:14px;transition:.3s}
+.card:hover{transform:translateY(-6px)}
+.card img{width:100%;height:110px;object-fit:cover;border-radius:8px}
+ul.pills{display:flex;gap:10px;list-style:none;padding:0}
+ul.pills li{background:#6e2c00;color:#fff;padding:6px 14px;border-radius:20px}
+input:focus{outline:2px solid #ffb703}
+footer{background:#222;color:#fff;text-align:center;padding:14px}
+</style>
+</head>
+<body>
+<header><h2>BookNest</h2><nav><a href="#">Home</a><a href="#">Categories</a><a href="#">Offers</a><a href="#">Contact</a></nav>
+<form><input type="search" placeholder="Search books..." style="padding:7px;border-radius:5px;border:0"> <button
+class="btn">Search</button></form></header>
+<section><h2>Categories</h2><ul class="pills"><li>Fiction</li><li>Science</li><li>Technology</li><li>History</li></ul>
+</section>
+<section><h2>Featured Books</h2><div class="grid">
+<article class="card"><img src="c1.jpg" alt="book"><h3>Clean Code</h3><p>Author: R. Martin</p><p><b>Rs. 450</b></p><a
+class="btn" href="#">Buy Now</a></article>
+<article class="card"><img src="c2.jpg" alt="book"><h3>Wings of Fire</h3><p>Author: A.P.J. Kalam</p><p><b>Rs. 299</b></p><a
+class="btn" href="#">Buy Now</a></article>
+<article class="card"><img src="c3.jpg" alt="book"><h3>Python Basics</h3><p>Author: M. Lutz</p><p><b>Rs. 520</b></p><a
+class="btn" href="#">Buy Now</a></article>
+<article class="card"><img src="c4.jpg" alt="book"><h3>Atomic Habits</h3><p>Author: J. Clear</p><p><b>Rs. 350</b></p><a
+class="btn" href="#">Buy Now</a></article>
+</div></section>
+<section><h2>Special Offers</h2><p>Flat 20% off on all Technology books. Use code <b>BOOK20</b>.</p></section>
+<footer>BookNest | contact@booknest.com | +91 98000 12345</footer>
+</body>
+</html>
+
+Output:

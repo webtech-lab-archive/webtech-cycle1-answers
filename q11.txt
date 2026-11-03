@@ -1,0 +1,59 @@
+Question 11 Template 2 - Card Grid Page
+Q11. Design and develop a static webpage for an Online Food Ordering Service using HTML5 and CSS3. The webpage should
+contain the website name, navigation menu, food categories, at least four food-item cards with images, names, descriptions and
+prices, Add to Cart buttons, special offers and a customer review section. Use headings, paragraphs, images, lists, buttons, hyperlinks,
+sections and articles. Apply CSS Grid, Flexbox, box-shadow, border-radius, padding, margin. [50 Marks]
+
+Answer (index.html - images saved in the same folder):
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Food Ordering</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:'Segoe UI',Arial,sans-serif;background:#f5f5f5}
+header{background:#c0392b;color:#fff;padding:15px 30px;display:flex;justify-content:space-between;align-items:center}
+nav a{color:#fff;margin-left:20px;text-decoration:none}
+.hero{background:linear-gradient(#c0392b,#922b21);color:#fff;text-align:center;padding:45px 20px}
+.btn{display:inline-block;background:#ffb703;color:#000;padding:9px 20px;border:0;border-radius:25px;fontweight:bold;cursor:pointer;text-decoration:none}
+section{padding:22px 30px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.card{background:#fff;border-radius:12px;box-shadow:0 3px 10px rgba(0,0,0,.2);padding:14px;transition:.3s}
+.card:hover{transform:translateY(-6px)}
+.card img{width:100%;height:110px;object-fit:cover;border-radius:8px}
+ul.pills{display:flex;gap:10px;list-style:none;padding:0}
+ul.pills li{background:#c0392b;color:#fff;padding:6px 14px;border-radius:20px}
+input:focus{outline:2px solid #ffb703}
+footer{background:#222;color:#fff;text-align:center;padding:14px}
+</style>
+</head>
+<body>
+<header><h2>FoodExpress</h2><nav><a href="#">Home</a><a href="#">Categories</a><a href="#">Offers</a><a href="#">Reviews</a>
+</nav></header>
+<div class="hero"><h1>Hungry? Order Now!</h1><p>Hot food delivered in 30 minutes.</p></div>
+<section><h2>Food Categories</h2><ul class="pills"><li>Pizza</li><li>Burgers</li><li>Biryani</li><li>Desserts</li></ul>
+</section>
+<section><h2>Popular Items</h2><div class="grid">
+<article class="card"><img src="c1.jpg" alt="pizza"><h3>Margherita Pizza</h3><p>Cheese, tomato and basil.</p><p><b>Rs. 249</b>
+</p><button class="btn">Add to Cart</button></article>
+<article class="card"><img src="c2.jpg" alt="burger"><h3>Veg Burger</h3><p>Crispy patty with fresh veggies.</p><p><b>Rs.
+129</b></p><button class="btn">Add to Cart</button></article>
+<article class="card"><img src="c3.jpg" alt="biryani"><h3>Chicken Biryani</h3><p>Aromatic basmati rice.</p><p><b>Rs. 199</b>
+</p><button class="btn">Add to Cart</button></article>
+<article class="card"><img src="c4.jpg" alt="cake"><h3>Choco Lava Cake</h3><p>Warm and gooey.</p><p><b>Rs. 99</b></p><button
+class="btn">Add to Cart</button></article>
+</div></section>
+<section><h2>Special Offers</h2><ul><li>50% off on first order - code NEW50</li><li>Free delivery above Rs. 399</li></ul>
+</section>
+<section><h2>Customer Reviews</h2><div class="grid">
+<article class="card"><p>"Super fast delivery!"</p><b>- Anil</b></article>
+<article class="card"><p>"Tasty biryani, loved it."</p><b>- Divya</b></article>
+<article class="card"><p>"Great offers and service."</p><b>- Karan</b></article>
+</div></section>
+<footer>&copy; 2026 FoodExpress</footer>
+</body>
+</html>
+
+Output:

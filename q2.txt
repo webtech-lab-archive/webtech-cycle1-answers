@@ -1,0 +1,53 @@
+Question 2 Template 2 - Card Grid Page
+Q2. Design and develop a static webpage for an Online Learning Platform using HTML and CSS. The webpage should include a
+header, navigation menu, hero section containing the course title and description, an Enroll Now button, at least three course cards
+containing course name, duration, level and fee, instructor information and a footer. Use headings, paragraphs, images, hyperlinks,
+buttons, sections, articles and lists. Apply CSS properties including background, color, font properties, margin, padding, border-radius,
+box-shadow, Flexbox to create an attractive layout. [50 Marks]
+
+Answer (index.html - images saved in the same folder):
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Course</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:'Segoe UI',Arial,sans-serif;background:#f5f5f5}
+header{background:#2e4053;color:#fff;padding:15px 30px;display:flex;justify-content:space-between;align-items:center}
+nav a{color:#fff;margin-left:20px;text-decoration:none}
+.hero{background:linear-gradient(#2e4053,#1b2631);color:#fff;text-align:center;padding:45px 20px}
+.btn{display:inline-block;background:#ffb703;color:#000;padding:9px 20px;border:0;border-radius:25px;fontweight:bold;cursor:pointer;text-decoration:none}
+section{padding:22px 30px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.card{background:#fff;border-radius:12px;box-shadow:0 3px 10px rgba(0,0,0,.2);padding:14px;transition:.3s}
+.card:hover{transform:translateY(-6px)}
+.card img{width:100%;height:110px;object-fit:cover;border-radius:8px}
+ul.pills{display:flex;gap:10px;list-style:none;padding:0}
+ul.pills li{background:#2e4053;color:#fff;padding:6px 14px;border-radius:20px}
+input:focus{outline:2px solid #ffb703}
+footer{background:#222;color:#fff;text-align:center;padding:14px}
+</style>
+</head>
+<body>
+<header><h2>LearnHub</h2><nav><a href="#">Home</a><a href="#">Courses</a><a href="#">Instructor</a><a href="#">Contact</a>
+</nav></header>
+<div class="hero"><h1>Learn Web Development Online</h1><p>Master HTML, CSS and JavaScript with real projects.</p>
+<a class="btn" href="#courses">Enroll Now</a></div>
+<section id="courses"><h2>Popular Courses</h2><div class="grid">
+<article class="card"><h3>HTML &amp; CSS</h3><ul><li>Duration: 4 weeks</li><li>Level: Beginner</li><li>Fee: Rs. 999</li></ul><a
+class="btn" href="#">Enroll</a></article>
+<article class="card"><h3>JavaScript</h3><ul><li>Duration: 6 weeks</li><li>Level: Intermediate</li><li>Fee: Rs. 1499</li></ul>
+<a class="btn" href="#">Enroll</a></article>
+<article class="card"><h3>React JS</h3><ul><li>Duration: 8 weeks</li><li>Level: Advanced</li><li>Fee: Rs. 1999</li></ul><a
+class="btn" href="#">Enroll</a></article>
+</div></section>
+<section id="instructor"><h2>Instructor</h2><div class="card" style="display:flex;gap:15px;align-items:center">
+<img src="profile.jpg" alt="Instructor" style="width:100px;height:100px;border-radius:50%">
+<p><b>Priya Sharma</b> - Senior Web Developer with 10 years of teaching experience.</p></div></section>
+<footer>&copy; 2026 LearnHub | support@learnhub.com</footer>
+</body>
+</html>
+
+Output:

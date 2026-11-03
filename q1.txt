@@ -1,0 +1,56 @@
+Question 1 Template 1 - Institution Page
+Q1. Design and develop a static webpage for a College Department using HTML5 and CSS3. The webpage should contain a header
+with the college and department name, a navigation menu with Home, About, Programs, Faculty and Contact links, an About
+Department section, Programs Offered using an unordered list, Faculty Details using a table, a department image and a footer. Apply
+CSS properties such as background-color, color, font-family, font-size, text-align, margin, padding, border, border-radius and Flexbox
+for page layout. [50 Marks]
+
+Answer (index.html - images saved in the same folder):
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>College Department</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f6f8;color:#222}
+header{background:#1a5276;color:#fff;text-align:center;padding:18px}
+header h1{margin:0;font-size:28px}
+nav{background:#154360;display:flex;justify-content:center;gap:25px;padding:10px}
+nav a{color:#fff;text-decoration:none;font-size:16px}
+.wrap{display:flex;gap:15px;padding:10px 15px}
+section{flex:1;background:#fff;border:1px solid #ccc;border-radius:8px;padding:15px}
+h2{color:#1a5276;margin-top:0}
+table{width:100%;border-collapse:collapse}
+th,td{border:1px solid #999;padding:6px;text-align:left}
+th{background:#1a5276;color:#fff}
+img{width:100%;border-radius:8px}
+.btn{background:#1a5276;color:#fff;padding:8px 16px;border-radius:5px;text-decoration:none}
+footer{background:#154360;color:#fff;text-align:center;padding:12px;margin-top:10px}
+</style>
+</head>
+<body>
+<header><h1>ABC College of Engineering</h1><p>Department of Information Technology</p></header>
+<nav><a href="#home">Home</a><a href="#about">About</a><a href="#programs">Programs</a><a href="#faculty">Faculty</a><a
+href="#contact">Contact</a></nav>
+<main id="home">
+<div class="wrap">
+<section id="about"><h2>About Department</h2>
+<p>Founded in 2005, the IT department focuses on software, networks and data science with strong industry ties.</p></section>
+<section id="programs"><h2>Programs Offered</h2>
+<ul><li>B.Tech Information Technology</li><li>M.Tech Software Engineering</li><li>Ph.D. Research Programme</li></ul></section>
+</div>
+<div class="wrap">
+<section id="faculty"><h2>Faculty Details</h2>
+<table><tr><th>Name</th><th>Designation</th><th>Qualification</th></tr>
+<tr><td>Dr. A. Kumar</td><td>Professor &amp; HOD</td><td>Ph.D.</td></tr>
+<tr><td>Ms. R. Devi</td><td>Asst. Professor</td><td>M.E.</td></tr>
+<tr><td>Mr. S. Raj</td><td>Asst. Professor</td><td>M.Tech</td></tr></table></section>
+<section><h2>Department Image</h2><img src="dept.jpg" alt="Department building"></section>
+</div></main>
+<footer id="contact">ABC College of Engineering | it@abc.edu | +91 98765 43210</footer>
+</body>
+</html>
+
+Output:

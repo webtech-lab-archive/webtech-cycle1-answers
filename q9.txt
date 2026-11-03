@@ -1,0 +1,61 @@
+Question 9 Template 3 - Table + Form Page
+Q9. Design and develop a static webpage for a College Technical Symposium using HTML5 and CSS3. The webpage should contain
+the event title and tagline, event banner, date, time and venue, event description, a list of technical events, an event schedule using a
+table and a registration form containing Name, Email, Phone Number, Department, Gender, Event Selection and Submit button. Use
+headings, paragraphs, images, tables, <form>, <input>, radio buttons, checkboxes, <select> and buttons. Apply CSS for form fields,
+tables, buttons, borders, padding, margins, border-radius and Flexbox. [50 Marks]
+
+Answer (index.html - images saved in the same folder):
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technical Symposium</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Georgia,serif;background:#fdf6ec}
+header{background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url(banner.jpg) center/cover;color:#fff;textalign:center;padding:45px 20px}
+nav{background:#333;display:flex;justify-content:center;gap:22px;padding:10px}
+nav a{color:#fff;text-decoration:none}
+section{max-width:900px;margin:18px auto;padding:15px;background:#fff;border:1px solid #ddd;border-radius:10px}
+h2{color:#1a5276;margin-top:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+table{width:100%;border-collapse:collapse}
+th,td{border:1px solid #bbb;padding:7px;text-align:left}
+th{background:#1a5276;color:#fff}
+tr:nth-child(even){background:#f2f2f2}
+form{display:flex;flex-direction:column;gap:8px}
+form input[type=text],form input[type=email],form input[type=tel],form input[type=password],select{padding:8px;border:1px solid
+#888;border-radius:5px}
+button{background:#1a5276;color:#fff;padding:10px;border:0;border-radius:5px;cursor:pointer}
+footer{background:#333;color:#fff;text-align:center;padding:14px}
+</style>
+</head>
+<body>
+<header><h1>TECHNOVA 2026</h1><p><i>Innovate. Compete. Celebrate.</i></p></header>
+<nav><a href="#">Home</a><a href="#events">Events</a><a href="#schedule">Schedule</a><a href="#register">Register</a></nav>
+<section><h2>Event Details</h2><p><b>Date:</b> 15 Dec 2026 &nbsp; <b>Time:</b> 9:00 AM &nbsp; <b>Venue:</b> Main Auditorium</p>
+<p>A national level technical symposium with coding, design and quiz events.</p></section>
+<section id="events"><h2>Technical Events</h2><ul><li>Coding Contest</li><li>Paper Presentation</li><li>Web Design</li><li>Tech
+Quiz</li></ul></section>
+<section id="schedule"><h2>Event Schedule</h2><table><tr><th>Time</th><th>Event</th><th>Hall</th></tr>
+<tr><td>9:30 AM</td><td>Coding Contest</td><td>Lab 1</td></tr>
+<tr><td>11:00 AM</td><td>Paper Presentation</td><td>Hall A</td></tr>
+<tr><td>2:00 PM</td><td>Web Design</td><td>Lab 2</td></tr></table></section>
+<section id="register"><h2>Registration Form</h2>
+<form action="#" method="post">
+<label>Name</label><input type="text" required>
+<label>Email</label><input type="email" required>
+<label>Phone Number</label><input type="tel" pattern="[0-9]{10}" required>
+<label>Department</label><select><option>CSE</option><option>IT</option><option>ECE</option></select>
+<label>Gender</label><div><input type="radio" name="g"> Male <input type="radio" name="g"> Female <input type="radio" name="g">
+Other</div>
+<label>Event Selection</label><div><input type="checkbox"> Coding <input type="checkbox"> Paper <input type="checkbox"> Design
+<input type="checkbox"> Quiz</div>
+<button type="submit">Submit</button></form></section>
+<footer>TECHNOVA 2026 | symposium@abc.edu</footer>
+</body>
+</html>
+
+Output:

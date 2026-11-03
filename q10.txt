@@ -1,0 +1,55 @@
+Question 10 Template 2 - Card Grid Page
+Q10. Design and develop a static webpage for a Fitness Centre using HTML and CSS. The webpage should contain the fitness centre
+name and tagline, navigation menu, About section, fitness programs, membership plans, trainer information, facilities and a
+membership registration link. Use headings, paragraphs, images, lists, tables or cards, hyperlinks, sections and footer. Apply CSS Grid
+and Flexbox along with background images, box-shadow, border-radius to create an attractive webpage. [50 Marks]
+
+Answer (index.html - images saved in the same folder):
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fitness Centre</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:'Segoe UI',Arial,sans-serif;background:#f5f5f5}
+header{background:#b9770e;color:#fff;padding:15px 30px;display:flex;justify-content:space-between;align-items:center}
+nav a{color:#fff;margin-left:20px;text-decoration:none}
+.hero{background:linear-gradient(#b9770e,#7e5109);color:#fff;text-align:center;padding:45px 20px}
+.btn{display:inline-block;background:#ffb703;color:#000;padding:9px 20px;border:0;border-radius:25px;fontweight:bold;cursor:pointer;text-decoration:none}
+section{padding:22px 30px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.card{background:#fff;border-radius:12px;box-shadow:0 3px 10px rgba(0,0,0,.2);padding:14px;transition:.3s}
+.card:hover{transform:translateY(-6px)}
+.card img{width:100%;height:110px;object-fit:cover;border-radius:8px}
+ul.pills{display:flex;gap:10px;list-style:none;padding:0}
+ul.pills li{background:#b9770e;color:#fff;padding:6px 14px;border-radius:20px}
+input:focus{outline:2px solid #ffb703}
+footer{background:#222;color:#fff;text-align:center;padding:14px}
+.hero{background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url(banner.jpg) center/cover;padding:80px 20px}</style>
+</head>
+<body>
+<header><h2>IronFit Gym</h2><nav><a href="#">Home</a><a href="#">About</a><a href="#">Programs</a><a href="#">Plans</a><a
+href="#">Contact</a></nav></header>
+<div class="hero"><h1>IronFit Centre</h1><p>Stronger every day.</p><a class="btn" href="#join">Join Now</a></div>
+<section><h2>About</h2><p>A modern fitness centre with certified trainers, latest equipment and personal diet guidance.</p>
+</section>
+<section><h2>Fitness Programs</h2><ul class="pills"><li>Yoga</li><li>Cardio</li><li>Weight Training</li><li>Zumba</li></ul>
+</section>
+<section><h2>Membership Plans</h2><div class="grid">
+<article class="card"><h3>Monthly</h3><p><b>Rs. 1,000</b></p><p>Gym access</p></article>
+<article class="card"><h3>Quarterly</h3><p><b>Rs. 2,700</b></p><p>Gym + Cardio</p></article>
+<article class="card"><h3>Yearly</h3><p><b>Rs. 9,000</b></p><p>All programs</p></article>
+</div></section>
+<section><h2>Trainers</h2><div class="grid">
+<article class="card"><img src="profile.jpg" alt="trainer"><h3>Rahul</h3><p>Strength Coach</p></article>
+<article class="card"><img src="profile.jpg" alt="trainer"><h3>Anita</h3><p>Yoga Expert</p></article>
+</div></section>
+<section><h2>Facilities</h2><ul><li>Steam Room</li><li>Locker Rooms</li><li>Juice Bar</li></ul>
+<a class="btn" id="join" href="#">Membership Registration</a></section>
+<footer>IronFit | fit@ironfit.com</footer>
+</body>
+</html>
+
+Output:
